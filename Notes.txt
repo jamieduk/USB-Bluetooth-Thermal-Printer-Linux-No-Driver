@@ -1,5 +1,9 @@
 # USB Thermal Printer Linux Bash (No Driver Required)!
 
+https://github.com/jamieduk/USB-Bluetooth-Thermal-Printer-Linux-No-Driver
+
+https://jnet.forumotion.com/t2191-usb-thermal-printer-linux-bash-plus-no-driver-required?highlight=linux+fm+cli
+
 # Use lsusb command to list usb devices (run it before and after connecting printer to see the new printer device listed)
 
 
