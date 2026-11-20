@@ -1,0 +1,64 @@
+# USB Thermal Printer Linux Bash (No Driver Required)!
+
+# Use lsusb command to list usb devices (run it before and after connecting printer to see the new printer device listed)
+
+
+lsusb # (After)
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 002: ID 0bda:9210 Realtek Semiconductor Corp. RTL9210 M.2 NVME Adapter
+Bus 004 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 004 Device 002: ID 214b:7250 Huasheng Electronics USB2.0 HUB
+Bus 004 Device 003: ID 214b:7250 Huasheng Electronics USB2.0 HUB
+Bus 004 Device 005: ID 1a2c:2124 China Resource Semico Co., Ltd Keyboard
+Bus 004 Device 051: ID 046d:c077 Logitech, Inc. Mouse
+Bus 004 Device 086: ID 1a86:55d4 QinHeng Electronics USB Single Serial
+Bus 005 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 002: ID 0bda:9210 Realtek Semiconductor Corp. RTL9210 M.2 NVME Adapter
+
+So the printer is 
+Bus 004 Device 052: ID 28e9:0289 GDMicroelectronics micro-printer
+
+sudo dmesg | tail -50
+
+[33667.268209] usblp 4-2.1.2:1.0: usblp0: USB Bidirectional printer dev 52 if 0 alt 0 proto 2 vid 0x28E9 pid 0x0289
+
+So we see the device id is usblp0
+
+# Can confirm if still unsure
+ls -l /dev/usb/
+
+# So from output we can see mines 
+/dev/usb/lp0
+
+# Print Test without any driver! (edit the raw-test.sh file to change usb device for your printer)
+
+sudo ./raw-test.sh
+
+sudo chmod +x *.sh
+
+./setup.sh
+
+./raw-test.sh
+
+
+# Manual Setup
+
+pip install python-escpos pyusb pillow
+
+
+./setup.sh
+
+
+sudo chmod +x *.sh
+
+./setup.sh
+
+
+Code:
+python3 raw-test.py
+
+
+
+
